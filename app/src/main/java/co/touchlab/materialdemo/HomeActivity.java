@@ -20,13 +20,7 @@ import android.widget.TextView;
 
 public class HomeActivity extends ActionBarActivity
 {
-
-    public static final String KEY_SELECTED_POSITION = "selected_position";
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence title;
-    private int          currentSelectedPosition;
     private ListView     drawerListView;
     private DrawerLayout drawerLayout;
     private final String[] topics = {"RecyclerViews", "CardViews","Shadows and Clipping", "Animations","Palette"};
@@ -89,7 +83,6 @@ public class HomeActivity extends ActionBarActivity
                 {
                     drawerListView.setItemChecked(position, true);
                 }
-                currentSelectedPosition = position;
                 onNavigationDrawerItemSelected(position);
                 break;
         }
@@ -120,13 +113,7 @@ public class HomeActivity extends ActionBarActivity
             case 0:
                 fragment = RecyclerViewMainFragment.newInstance();
                 break;
-            case 1:
-                PlaceholderFragment.newInstance(position);
-                break;
-            case 2:
-                PlaceholderFragment.newInstance(position);
-                break;
-            case 3:
+            default:
                 PlaceholderFragment.newInstance(position);
                 break;
         }
