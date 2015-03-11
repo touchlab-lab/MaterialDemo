@@ -125,6 +125,7 @@ public class HomeActivity extends ActionBarActivity
         {
             case 0:
                 fragment = RecyclerViewMainFragment.newInstance();
+                break;
             case 1:
                 title = getString(R.string.title_section1);
                 PlaceholderFragment.newInstance(position + 1);
@@ -134,8 +135,7 @@ public class HomeActivity extends ActionBarActivity
                 PlaceholderFragment.newInstance(position + 1);
                 break;
             case 3:
-                title = getString(R.string.title_section3);
-                PlaceholderFragment.newInstance(position + 1);
+                fragment =AnimationMainFragment.newInstance();
                 break;
         }
 

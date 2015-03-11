@@ -1,5 +1,6 @@
 package co.touchlab.materialdemo.adapters;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,14 +32,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MainViewHolder
         cardImage = (ImageView) v.findViewById(R.id.card_list_photo);
         Picasso.with(v.getContext()).load(R.drawable.gsxr).fit().into(cardImage);
         // set the view's size, margins, paddings and layout parameters
-        MainViewHolder vh = new MainViewHolder(v);
-
+        final MainViewHolder vh = new MainViewHolder(v, new MainViewHolder.ItemClickListener()
+        {
+            @Override
+            public void onClick(View caller, MainViewHolder viewHolder)
+            {
+                Log.d("CardAdapter", "clicked: " + viewHolder.getPosition());
+                if(! mDataset.isEmpty())
+                {
+                    mDataset.remove(viewHolder.getPosition());
+                    notifyItemRemoved(viewHolder.getPosition());
+                }
+            }
+        });
         return vh;
-    }
-
-    public void addItemToList(String item)
-    {
-        mDataset.add(item);
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
@@ -50,7 +57,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MainViewHolder
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MainViewHolder holder, int position)
+    public void onBindViewHolder(MainViewHolder holder, final int position)
     {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
@@ -70,24 +77,31 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MainViewHolder
     public static class MainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         // each data item is just a string in this case
-        private MainRecyclerListClickListener mListAdapter;
-        public  TextView                      mTextView;
+        ItemClickListener onClickListener = null;
 
-        public MainViewHolder(View v)
+        public TextView mTextView;
+        View clickableView;
+
+        public MainViewHolder(View v, ItemClickListener itemClickListener)
         {
             super(v);
+            this.onClickListener = itemClickListener;
+            clickableView = v.findViewById(R.id.card_view_overlay);
+
             mTextView = (TextView) v.findViewById(R.id.main_list_text);
+            clickableView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v)
         {
-            mListAdapter.onClick(getPosition());
+            onClickListener.onClick(v, this);
         }
 
-        public interface MainRecyclerListClickListener
+        public static interface ItemClickListener
         {
-            public void onClick(int position);
+            public void onClick(View caller, MainViewHolder viewHolder);
         }
+
     }
 }

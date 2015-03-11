@@ -5,16 +5,19 @@
               android:orientation="vertical"
               tools:context="co.touchlab.materialdemo.RecyclerViewMainFragment">
 
-    <Button android:id="@+id/btn_recycler_list"
+    <Button android:id="@+id/btn_hero_transition"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Recycler List"/>
-    <Button android:id="@+id/btn_recycler_grid"
+            android:text="Activity Transition w/ Shared element"/>
+    <Button android:id="@+id/btn_animation_reveal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Recycler Grid"/>
-    <Button android:id="@+id/btn_recycler_staggered"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Recycler Staggered"/>
+            android:text="Reveal Animation"/>
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="invisible"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gsxr"/>
 </LinearLayout>

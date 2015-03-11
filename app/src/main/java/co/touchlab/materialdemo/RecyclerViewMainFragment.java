@@ -35,17 +35,9 @@ public class RecyclerViewMainFragment extends Fragment
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_recycler_view_main, container, false);
 
-        Button recyclerGridBtn = (Button) rootView.findViewById(R.id.btn_recycler_grid);
         Button recyclerListBtn = (Button) rootView.findViewById(R.id.btn_recycler_list);
-
-        recyclerGridBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                RecyclerGridActivity.callMe(getActivity());
-            }
-        });
+        Button recyclerGridBtn = (Button) rootView.findViewById(R.id.btn_recycler_grid);
+        Button recyclerStaggeredBtn = (Button) rootView.findViewById(R.id.btn_recycler_staggered);
 
         recyclerListBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -56,7 +48,23 @@ public class RecyclerViewMainFragment extends Fragment
             }
         });
 
+        recyclerGridBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                RecyclerGridActivity.callMe(getActivity());
+            }
+        });
 
+        recyclerStaggeredBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                RecyclerStaggeredActivity.callMe(getActivity());
+            }
+        });
         return rootView;
     }
 }

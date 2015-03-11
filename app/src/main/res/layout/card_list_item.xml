@@ -42,8 +42,10 @@
             android:text="Hello World"/>
     </RelativeLayout>
     <!-- This exists to allow the ripple effect to appear on top of all elements -->
-    <View android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          android:clickable="true"
-          android:background="?android:selectableItemBackground"/>
+    <View
+        android:id="@+id/card_view_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:background="?android:selectableItemBackground"/>
 </android.support.v7.widget.CardView>

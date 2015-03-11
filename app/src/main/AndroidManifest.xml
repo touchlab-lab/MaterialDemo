@@ -28,6 +28,10 @@
             android:name=".RecyclerListActivity"
             android:label="@string/title_activity_recycler_list">
         </activity>
+        <activity
+            android:name=".RecyclerStaggeredActivity"
+            android:label="@string/title_activity_recycler_staggered">
+        </activity>
     </application>
 
 </manifest>
