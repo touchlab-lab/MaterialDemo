@@ -3,7 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="co.touchlab.materialdemo.RecyclerViewMainFragment">
+              tools:context="co.touchlab.materialdemo.fragments.RecyclerViewMainFragment">
 
     <Button android:id="@+id/btn_recycler_list"
             android:layout_width="fill_parent"
