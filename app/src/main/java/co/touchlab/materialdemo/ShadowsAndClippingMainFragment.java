@@ -50,7 +50,6 @@ public class ShadowsAndClippingMainFragment extends Fragment
                 else
                 {
                     photoToClip.setClipToOutline(true);
-
                 }
             }
         });

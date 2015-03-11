@@ -23,5 +23,6 @@
     <string name="reveal_btn">Reveal Animation</string>
     <string name="tap_instruction">Tap the Android. Do it.</string>
     <string name="card_title_default">Testing</string>
+    <string name="elevation_prompt">Tap image below to clip to circle</string>
 
 </resources>
