@@ -57,10 +57,15 @@ public class HomeActivity extends ActionBarActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                selectItem(position);
+                if(position != 0)
+                {
+                    selectItem(position - drawerListView.getHeaderViewsCount());
+                }
             }
         });
 
+        View header = LayoutInflater.from(this).inflate(R.layout.header_drawer, drawerListView, false);
+        drawerListView.addHeaderView(header);
         drawerListView.setAdapter(new ArrayAdapter<>(getSupportActionBar().getThemedContext(),
                                                      android.R.layout.simple_list_item_activated_1,
                                                      android.R.id.text1, topics));
@@ -81,7 +86,7 @@ public class HomeActivity extends ActionBarActivity
                 }
                 if(drawerListView != null)
                 {
-                    drawerListView.setItemChecked(position, true);
+                    drawerListView.setItemChecked(position + drawerListView.getHeaderViewsCount(), true);
                 }
                 onNavigationDrawerItemSelected(position);
                 break;
