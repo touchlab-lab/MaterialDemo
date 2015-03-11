@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MaterialDemo</string>
+
+    <string name="title_activity_reveal_animation">RevealAnimationActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>
