@@ -64,7 +64,8 @@ public class HomeActivity extends ActionBarActivity
             }
         });
 
-        View header = LayoutInflater.from(this).inflate(R.layout.header_drawer, drawerListView, false);
+        View header = LayoutInflater.from(this)
+                                    .inflate(R.layout.header_drawer, drawerListView, false);
         drawerListView.addHeaderView(header);
         drawerListView.setAdapter(new ArrayAdapter<>(getSupportActionBar().getThemedContext(),
                                                      android.R.layout.simple_list_item_activated_1,
@@ -89,7 +90,8 @@ public class HomeActivity extends ActionBarActivity
                 }
                 if(drawerListView != null)
                 {
-                    drawerListView.setItemChecked(position + drawerListView.getHeaderViewsCount(), true);
+                    drawerListView
+                            .setItemChecked(position + drawerListView.getHeaderViewsCount(), true);
                 }
                 onNavigationDrawerItemSelected(position);
                 break;
@@ -120,6 +122,9 @@ public class HomeActivity extends ActionBarActivity
         {
             case 0:
                 fragment = RecyclerViewMainFragment.newInstance();
+                break;
+            case 2:
+                fragment = ShadowsAndClippingMainFragment.newInstance();
                 break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
