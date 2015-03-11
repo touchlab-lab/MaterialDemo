@@ -106,7 +106,7 @@ public class HomeActivity extends ActionBarActivity
     {
         //        update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = PlaceholderFragment.newInstance(position + 1);
+        Fragment fragment;
 
         switch(position)
         {
@@ -114,7 +114,7 @@ public class HomeActivity extends ActionBarActivity
                 fragment = RecyclerViewMainFragment.newInstance();
                 break;
             default:
-                PlaceholderFragment.newInstance(position);
+                fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
         }
 
