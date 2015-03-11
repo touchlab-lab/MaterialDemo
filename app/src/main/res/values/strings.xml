@@ -16,5 +16,7 @@
     <string name="action_example">Example action</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="title_activity_recycler_list">Recycler List</string>
+    <string name="title_activity_recycler_grid">Recycler Grid</string>
 
 </resources>

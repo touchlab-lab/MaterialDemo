@@ -95,8 +95,8 @@ public class HomeActivity extends ActionBarActivity
         topics.add("Animations");
         topics.add("Palette");
         drawerListView.setAdapter(new ArrayAdapter<>(getSupportActionBar().getThemedContext(),
-                                                           android.R.layout.simple_list_item_activated_1,
-                                                           android.R.id.text1, topics));
+                                                     android.R.layout.simple_list_item_activated_1,
+                                                     android.R.id.text1, topics));
 
     }
 
@@ -117,11 +117,29 @@ public class HomeActivity extends ActionBarActivity
 
     public void onNavigationDrawerItemSelected(int position)
     {
-//        update the main content by replacing fragments
+        //        update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                       .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                       .commit();
+        Fragment fragment = PlaceholderFragment.newInstance(position + 1);
+
+        switch(position)
+        {
+            case 0:
+                fragment = RecyclerViewMainFragment.newInstance();
+            case 1:
+                title = getString(R.string.title_section1);
+                PlaceholderFragment.newInstance(position + 1);
+                break;
+            case 2:
+                title = getString(R.string.title_section2);
+                PlaceholderFragment.newInstance(position + 1);
+                break;
+            case 3:
+                title = getString(R.string.title_section3);
+                PlaceholderFragment.newInstance(position + 1);
+                break;
+        }
+
+        fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
     }
 
     public void onSectionAttached(int number)
@@ -152,7 +170,7 @@ public class HomeActivity extends ActionBarActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        if(!drawerLayout.isDrawerOpen(drawerListView))
+        if(! drawerLayout.isDrawerOpen(drawerListView))
         {
             getMenuInflater().inflate(R.menu.home, menu);
             restoreActionBar();
