@@ -1,0 +1,79 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+crash*
+*.iml
+.idea
+
+
+
+
+# ndk generated files
+**/obj/
+
+# built application files
+*.apk
+*.ap_
+
+# lint files
+lint.xml
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+classes/
+gen-external-apklibs/
+
+# maven output folder
+target
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+.classpath
+.project
+.metadata
+.settings
+
+# IntelliJ files
+.idea
+*.iml
+
+out
+.gradle
+/.idea/workspace.xml
+.DS_Store
+build
+
+# Windows files
+Thumbs.db
+
+# vi swap files
+*.swp
+
+# backup files
+*.bak
+
+vals.xml
+sign-release.jks
+
+com_crashlytics_export_strings.xml
+/app/src/main/assets/crashlytics-build.properties
+
+# emacs backup files
+*~
+
+# generated proguard files
+/app/mapping.txt
+/app/unused.txt
+/app/seeds.txt
