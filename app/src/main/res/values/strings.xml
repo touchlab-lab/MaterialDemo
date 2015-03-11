@@ -18,5 +18,10 @@
     <string name="title_activity_recycler_list">Recycler List</string>
     <string name="title_activity_recycler_grid">Recycler Grid</string>
     <string name="title_activity_recycler_staggered">Recycler Staggered</string>
+    <string name="title_activity_animation">AnimationActivity</string>
+    <string name="title_activity_transitioned"/>
+    <string name="reveal_btn">Reveal Animation</string>
+    <string name="tap_instruction">Tap the Android. Do it.</string>
+    <string name="card_title_default">Testing</string>
 
 </resources>

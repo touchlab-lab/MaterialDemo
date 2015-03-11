@@ -32,12 +32,24 @@
         </activity>
         <activity
             android:name=".PaletteActivity"
-            android:parentActivityName=".HomeActivity"
-            android:label="@string/title_activity_pallete" >
+            android:label="@string/title_activity_pallete"
+            android:parentActivityName=".HomeActivity">
         </activity>
         <activity
             android:name=".RecyclerStaggeredActivity"
             android:label="@string/title_activity_recycler_staggered">
+        </activity>
+        <activity
+            android:name=".AnimationActivity"
+            android:label="@string/title_activity_animation"
+            android:launchMode="singleTop"
+            android:parentActivityName=".HomeActivity">
+        </activity>
+        <activity
+            android:name=".TransitionedActivity"
+            android:label="@string/title_activity_transitioned"
+            android:launchMode="singleTop"
+            android:parentActivityName=".TransitionedActivity">
         </activity>
     </application>
 

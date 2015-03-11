@@ -25,7 +25,6 @@ public class PaletteActivity extends ActionBarActivity
         setContentView(R.layout.activity_palette);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -54,6 +53,7 @@ public class PaletteActivity extends ActionBarActivity
         new AsyncTask<Void, Palette, Void>()
         {
             int count = 0;
+
             @Override
             protected Void doInBackground(Void... params)
             {

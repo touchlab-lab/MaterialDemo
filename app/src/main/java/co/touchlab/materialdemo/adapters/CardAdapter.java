@@ -30,7 +30,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MainViewHolder
         View v = LayoutInflater.from(parent.getContext())
                                .inflate(R.layout.card_list_item, parent, false);
         cardImage = (ImageView) v.findViewById(R.id.card_list_photo);
+
         Picasso.with(v.getContext()).load(R.drawable.gsxr).fit().into(cardImage);
+
         // set the view's size, margins, paddings and layout parameters
         final MainViewHolder vh = new MainViewHolder(v, new MainViewHolder.ItemClickListener()
         {

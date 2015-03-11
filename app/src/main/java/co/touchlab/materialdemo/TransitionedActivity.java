@@ -3,30 +3,28 @@ package co.touchlab.materialdemo;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.transition.Explode;
 import android.transition.Transition;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.gelormini.materialdesignexample.R;
-
-public class TransitionedActivity extends BaseActionBarActivity
+public class TransitionedActivity extends ActionBarActivity
 {
 
     public static Intent getLaunchIntent(Context context, Bitmap bitmapDrawable)
     {
-        Intent intent = new Intent(context, TransitionsActivity.class);
+        Intent intent = new Intent(context, TransitionedActivity.class);
         mBitmapDrawable = bitmapDrawable; //Set the drawable to animate
         return intent;
-        //        context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(context).toBundle());
     }
 
-    private static Bitmap    mBitmapDrawable;
-    private        ImageView mImageView;
+    private static Bitmap mBitmapDrawable;
 
     private Bitmap setupPhoto()
     {
@@ -37,15 +35,14 @@ public class TransitionedActivity extends BaseActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        //        getWindow().setSharedElementEnterTransition(new ChangeImageTransform());
         getWindow().setEnterTransition(new Explode());
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transitions);
+        setContentView(R.layout.activity_transitioned);
 
         setupPhoto();
 
-        mImageView = (ImageView) findViewById(R.id.hero);
+        ImageView mImageView = (ImageView) findViewById(R.id.hero);
 
         mImageView.setOnClickListener(new View.OnClickListener()
         {
@@ -68,9 +65,9 @@ public class TransitionedActivity extends BaseActionBarActivity
             public void onTransitionEnd(Transition transition)
             {
                 ImageView hero = (ImageView) findViewById(R.id.hero);
-                ObjectAnimator color = ObjectAnimator.ofArgb(hero.getDrawable(), "tint",
-                                                             getResources()
-                                                                     .getColor(R.color.primary), 0);
+                ObjectAnimator color = ObjectAnimator
+                        .ofArgb(hero.getDrawable(), "tint", getResources().getColor(R.color.tint),
+                                0);
                 color.start();
 
                 getWindow().getEnterTransition().removeListener(this);
@@ -101,7 +98,7 @@ public class TransitionedActivity extends BaseActionBarActivity
     {
         ImageView hero = (ImageView) findViewById(R.id.hero);
         ObjectAnimator color = ObjectAnimator
-                .ofArgb(hero.getDrawable(), "tint", 0, getResources().getColor(R.color.primary));
+                .ofArgb(hero.getDrawable(), "tint", 0, getResources().getColor(R.color.tint));
         color.addListener(new AnimatorListenerAdapter()
         {
             @Override

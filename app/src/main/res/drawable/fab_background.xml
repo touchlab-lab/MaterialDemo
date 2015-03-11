@@ -27,10 +27,10 @@
     </item>
 
     <item>
-        <ripple android:color="@color/accent">
+        <ripple android:color="@color/primary_light">
             <item>
                 <shape>
-                    <solid android:color="@color/primary_dark_material_light" />
+                    <solid android:color="@color/accent" />
                 </shape>
             </item>
         </ripple>

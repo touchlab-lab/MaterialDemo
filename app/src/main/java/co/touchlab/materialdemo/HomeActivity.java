@@ -23,7 +23,7 @@ public class HomeActivity extends ActionBarActivity
     private CharSequence title;
     private ListView     drawerListView;
     private DrawerLayout drawerLayout;
-    private final String[] topics = {"RecyclerViews", "CardViews","Shadows and Clipping", "Animations","Palette"};
+    private final String[] topics = {"RecyclerViews", "CardViews", "Shadows and Clipping", "Animations", "Palette"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -76,6 +76,9 @@ public class HomeActivity extends ActionBarActivity
     {
         switch(position)
         {
+            case 3:
+                AnimationActivity.callMe(HomeActivity.this);
+                break;
             case 4:
                 startActivity(new Intent(HomeActivity.this, PaletteActivity.class));
                 break;
