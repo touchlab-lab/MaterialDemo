@@ -1,6 +1,6 @@
 package co.touchlab.materialdemo;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,8 +10,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -19,19 +17,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 
 public class HomeActivity extends ActionBarActivity
 {
-
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence title;
-    private int          currentSelectedPosition;
     private ListView     drawerListView;
     private DrawerLayout drawerLayout;
+    private final String[] topics = {"RecyclerViews", "CardViews","Shadows and Clipping", "Animations","Palette"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,30 +40,13 @@ public class HomeActivity extends ActionBarActivity
 
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
                                                                        R.string.drawer_open,
-                                                                       R.string.drawer_close)
-        {
-
-            /** Called when a drawer has settled in a completely closed state. */
-            public void onDrawerClosed(View view)
-            {
-                super.onDrawerClosed(view);
-                //getActionBar().setTitle(title);
-                //invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-            }
-
-            /** Called when a drawer has settled in a completely open state. */
-            public void onDrawerOpened(View drawerView)
-            {
-                super.onDrawerOpened(drawerView);
-                //getActionBar().setTitle(mDrawerTitle);
-                //invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
-            }
-        };
+                                                                       R.string.drawer_close);
 
         drawerLayout.setDrawerListener(drawerToggle);
         drawerToggle.syncState();
 
         setUpDrawer();
+        selectItem(0);
     }
 
     private void setUpDrawer()
@@ -86,14 +61,6 @@ public class HomeActivity extends ActionBarActivity
             }
         });
 
-        ArrayList<String> topics = new ArrayList<>();
-        topics.add("RecyclerViews");
-        topics.add("CardViews");
-        //cool stuff with elevation
-        topics.add("Shadows and Clipping");
-        //scene transitions and view animations
-        topics.add("Animations");
-        topics.add("Palette");
         drawerListView.setAdapter(new ArrayAdapter<>(getSupportActionBar().getThemedContext(),
                                                      android.R.layout.simple_list_item_activated_1,
                                                      android.R.id.text1, topics));
@@ -102,100 +69,65 @@ public class HomeActivity extends ActionBarActivity
 
     private void selectItem(int position)
     {
-        currentSelectedPosition = position;
-        if(drawerListView != null)
+        switch(position)
         {
-            drawerListView.setItemChecked(position, true);
+            case 4:
+                startActivity(new Intent(HomeActivity.this, PaletteActivity.class));
+                break;
+            default:
+                if(drawerLayout != null)
+                {
+                    drawerLayout.closeDrawer(drawerListView);
+                }
+                if(drawerListView != null)
+                {
+                    drawerListView.setItemChecked(position, true);
+                }
+                onNavigationDrawerItemSelected(position);
+                break;
         }
-        if(drawerLayout != null)
+
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        if(drawerLayout.isDrawerOpen(drawerListView))
         {
             drawerLayout.closeDrawer(drawerListView);
         }
-        onNavigationDrawerItemSelected(position);
-
+        else
+        {
+            super.onBackPressed();
+        }
     }
 
     public void onNavigationDrawerItemSelected(int position)
     {
         //        update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-        Fragment fragment = PlaceholderFragment.newInstance(position + 1);
+        Fragment fragment;
 
         switch(position)
         {
             case 0:
                 fragment = RecyclerViewMainFragment.newInstance();
                 break;
-            case 1:
-                title = getString(R.string.title_section1);
-                PlaceholderFragment.newInstance(position + 1);
-                break;
-            case 2:
-                title = getString(R.string.title_section2);
-                PlaceholderFragment.newInstance(position + 1);
-                break;
-            case 3:
-                fragment =AnimationMainFragment.newInstance();
+            default:
+                fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
         }
 
         fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
-    }
-
-    public void onSectionAttached(int number)
-    {
-        switch(number)
-        {
-            case 1:
-                title = getString(R.string.title_section1);
-                break;
-            case 2:
-                title = getString(R.string.title_section2);
-                break;
-            case 3:
-                title = getString(R.string.title_section3);
-                break;
-        }
+        title = topics[position];
+        restoreActionBar();
     }
 
     public void restoreActionBar()
     {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(title);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        if(! drawerLayout.isDrawerOpen(drawerListView))
-        {
-            getMenuInflater().inflate(R.menu.home, menu);
-            restoreActionBar();
-            return true;
-        }
-
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if(id == R.id.action_settings)
-        {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -235,12 +167,6 @@ public class HomeActivity extends ActionBarActivity
             return rootView;
         }
 
-        @Override
-        public void onAttach(Activity activity)
-        {
-            super.onAttach(activity);
-            ((HomeActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
-        }
     }
 
 }
