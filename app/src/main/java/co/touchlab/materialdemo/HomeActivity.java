@@ -17,13 +17,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import co.touchlab.materialdemo.fragments.CardViewFragment;
+import co.touchlab.materialdemo.fragments.RecyclerViewMainFragment;
+
 
 public class HomeActivity extends ActionBarActivity
 {
     private CharSequence title;
     private ListView     drawerListView;
     private DrawerLayout drawerLayout;
-    private final String[] topics = {"RecyclerViews", "CardViews", "Shadows and Clipping", "Animations", "Palette"};
+    private final String[] topics = {"CardViews", "RecyclerViews","Shadows and Clipping", "Animations","Palette"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -121,6 +124,9 @@ public class HomeActivity extends ActionBarActivity
         switch(position)
         {
             case 0:
+                fragment = CardViewFragment.newInstance();
+                break;
+            case 1:
                 fragment = RecyclerViewMainFragment.newInstance();
                 break;
             case 2:

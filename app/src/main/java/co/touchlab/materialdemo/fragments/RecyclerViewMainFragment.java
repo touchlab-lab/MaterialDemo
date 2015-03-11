@@ -1,4 +1,4 @@
-package co.touchlab.materialdemo;
+package co.touchlab.materialdemo.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,6 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import co.touchlab.materialdemo.R;
+import co.touchlab.materialdemo.RecyclerGridActivity;
+import co.touchlab.materialdemo.RecyclerListActivity;
+import co.touchlab.materialdemo.RecyclerStaggeredActivity;
 
 
 public class RecyclerViewMainFragment extends Fragment
