@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ImageView;
 
 import co.touchlab.materialdemo.R;
 
@@ -44,6 +45,12 @@ public class DrawableMainFragment extends Fragment
         {
             ((Animatable) drawable).start();
         }
+        ImageView androidImageView = (ImageView) getView().findViewById(R.id.heart);
+        Drawable drawable = androidImageView.getDrawable();
+        if (drawable instanceof Animatable) {
+            ((Animatable) drawable).start();
+        }
+
     }
 
 }
