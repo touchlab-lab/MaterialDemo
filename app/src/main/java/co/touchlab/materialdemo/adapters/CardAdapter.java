@@ -34,7 +34,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MainViewHolder
         Picasso.with(v.getContext()).load(R.drawable.gsxr).fit().into(cardImage);
 
         // set the view's size, margins, paddings and layout parameters
-        final MainViewHolder vh = new MainViewHolder(v, new MainViewHolder.ItemClickListener()
+        MainViewHolder vh = new MainViewHolder(v, new MainViewHolder.ItemClickListener()
         {
             @Override
             public void onClick(View caller, MainViewHolder viewHolder)
@@ -42,11 +42,19 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MainViewHolder
                 Log.d("CardAdapter", "clicked: " + viewHolder.getPosition());
                 if(! mDataset.isEmpty())
                 {
-                    mDataset.remove(viewHolder.getPosition());
-                    notifyItemRemoved(viewHolder.getPosition());
+                    try
+                    {
+                        mDataset.remove(viewHolder.getPosition());
+                        notifyItemRemoved(viewHolder.getPosition());
+                    }
+                    catch(ArrayIndexOutOfBoundsException e)
+                    {
+                        Log.d("itemRemoved", "Attempted to remove invalid item. " + e.toString());
+                    }
                 }
             }
         });
+
         return vh;
     }
 

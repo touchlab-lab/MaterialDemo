@@ -19,10 +19,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RevealAnimationActivity"
-            android:label="@string/title_activity_reveal_animation">
-        </activity>
-        <activity
             android:name=".RecyclerGridActivity"
             android:label="@string/title_activity_recycler_grid">
         </activity>

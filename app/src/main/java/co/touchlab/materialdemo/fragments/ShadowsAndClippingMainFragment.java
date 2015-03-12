@@ -1,12 +1,13 @@
-package co.touchlab.materialdemo;
+package co.touchlab.materialdemo.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
+
+import co.touchlab.materialdemo.R;
 
 
 public class ShadowsAndClippingMainFragment extends Fragment
@@ -34,9 +35,10 @@ public class ShadowsAndClippingMainFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_shadows_and_clipping_main, container, false);
-        final ImageView middleRectangle = (ImageView)rootView.findViewById(R.id.middle_rectangle);
-        final ImageView photoToClip = (ImageView)rootView.findViewById(R.id.photo_to_clip);
+        View rootView = inflater
+                .inflate(R.layout.fragment_shadows_and_clipping_main, container, false);
+        final ImageView middleRectangle = (ImageView) rootView.findViewById(R.id.middle_rectangle);
+        final ImageView photoToClip = (ImageView) rootView.findViewById(R.id.photo_to_clip);
 
         photoToClip.setOnClickListener(new View.OnClickListener()
         {
@@ -59,7 +61,7 @@ public class ShadowsAndClippingMainFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                if(middleRectangle.getElevation()>0)
+                if(middleRectangle.getElevation() > 0)
                 {
                     middleRectangle.setElevation(middleRectangle.getElevation() - 2);
                 }
@@ -71,7 +73,7 @@ public class ShadowsAndClippingMainFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                if(middleRectangle.getElevation()<50)
+                if(middleRectangle.getElevation() < 50)
                 {
                     middleRectangle.setElevation(middleRectangle.getElevation() + 2);
                 }

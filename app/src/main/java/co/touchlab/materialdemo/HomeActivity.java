@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import co.touchlab.materialdemo.fragments.CardViewFragment;
 import co.touchlab.materialdemo.fragments.RecyclerViewMainFragment;
+import co.touchlab.materialdemo.fragments.ShadowsAndClippingMainFragment;
 
 
 public class HomeActivity extends ActionBarActivity
@@ -26,7 +27,7 @@ public class HomeActivity extends ActionBarActivity
     private CharSequence title;
     private ListView     drawerListView;
     private DrawerLayout drawerLayout;
-    private final String[] topics = {"CardViews", "RecyclerViews","Shadows and Clipping", "Animations","Palette"};
+    private final String[] topics = {"CardViews", "RecyclerViews", "Shadows and Clipping", "Animations", "Palette"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

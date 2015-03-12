@@ -13,8 +13,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Recycler Grid"/>
-    <Button android:id="@+id/btn_recycler_staggered"
+ <!--   <Button android:id="@+id/btn_recycler_staggered"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Recycler Staggered"/>
+            android:text="Recycler Staggered"/>-->
 </LinearLayout>
