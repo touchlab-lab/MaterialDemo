@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import co.touchlab.materialdemo.fragments.CardViewFragment;
+import co.touchlab.materialdemo.fragments.DrawableMainFragment;
 import co.touchlab.materialdemo.fragments.RecyclerViewMainFragment;
 import co.touchlab.materialdemo.fragments.ShadowsAndClippingMainFragment;
 
@@ -27,7 +28,7 @@ public class HomeActivity extends ActionBarActivity
     private CharSequence title;
     private ListView     drawerListView;
     private DrawerLayout drawerLayout;
-    private final String[] topics = {"CardViews", "RecyclerViews", "Shadows and Clipping", "Animations", "Palette"};
+    private final String[] topics = {"CardViews", "RecyclerViews", "Shadows and Clipping", "Animations", "Palette", "Drawables"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -132,6 +133,9 @@ public class HomeActivity extends ActionBarActivity
                 break;
             case 2:
                 fragment = ShadowsAndClippingMainFragment.newInstance();
+                break;
+            case 5:
+                fragment = DrawableMainFragment.newInstance();
                 break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
