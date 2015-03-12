@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:padding="6dp"
-            android:text="Shapes with elevation values of '2', '8', and '12':"/>
+            android:text="Shapes with elevation values of '2', '4', and '8':"/>
         <ImageView
             android:layout_marginTop="20dp"
             android:layout_marginLeft="-10dp"
@@ -45,12 +45,14 @@
             />
 
         <ImageView
+            android:id="@+id/middle_rectangle"
             android:layout_marginTop="-30dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:tint="@color/primary"
             android:background="@drawable/rectangle"
             android:layout_gravity="center_horizontal"
-            android:elevation="8dp"
+            android:elevation="3dp"
             />
 
         <ImageView
@@ -61,8 +63,30 @@
             android:layout_height="50dp"
             android:background="@drawable/rectangle"
             android:layout_gravity="center_horizontal"
-            android:elevation="12dp"
+            android:elevation="4dp"
             />
 
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+            <Button
+                android:id="@+id/btn_decrease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Decrease elevation"/>
+            <Button
+                android:id="@+id/btn_increase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Increase elevation"/>
+
+        </LinearLayout>
+        <TextView
+            android:padding="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Increase or Decrease elevation of middle rectangle."/>
     </LinearLayout>
 </ScrollView>

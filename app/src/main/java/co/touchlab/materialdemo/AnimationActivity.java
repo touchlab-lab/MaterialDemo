@@ -75,7 +75,7 @@ public class AnimationActivity extends ActionBarActivity
     private void circularRevealShow(int viewId)
     {
         // previously invisible view
-        View myView = findViewById(viewId);
+        ImageView myView = (ImageView)findViewById(viewId);
 
         // get the center for the clipping circle
         int cx = (myView.getLeft() + myView.getRight()) / 2;
@@ -95,7 +95,7 @@ public class AnimationActivity extends ActionBarActivity
     private void circularRevealHide(int viewId)
     {
         // previously visible view
-        final View myView = findViewById(viewId);
+        final ImageView myView = (ImageView)findViewById(viewId);
 
         // get the center for the clipping circle
         int cx = (myView.getLeft() + myView.getRight()) / 2;

@@ -60,8 +60,8 @@ public class PaletteActivity extends ActionBarActivity
                 Bitmap bitmap;
                 Palette palette;
 
-                Log.d(TAG, "bear time");
-                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bear);
+                Log.d(TAG, "tiger time");
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.tiger);
                 palette = Palette.generate(bitmap);
                 publishProgress(palette);
 
@@ -85,11 +85,10 @@ public class PaletteActivity extends ActionBarActivity
                 palette = Palette.generate(bitmap);
                 publishProgress(palette);
 
-                Log.d(TAG, "tiger time");
-                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.tiger);
+                Log.d(TAG, "bear time");
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bear);
                 palette = Palette.generate(bitmap);
                 publishProgress(palette);
-
                 return null;
             }
 
@@ -102,7 +101,7 @@ public class PaletteActivity extends ActionBarActivity
                 switch(count)
                 {
                     case 0:
-                        view = findViewById(R.id.bear);
+                        view = findViewById(R.id.tiger);
                         view.setBackgroundColor(values[0].getVibrantColor(Color.GRAY));
                         break;
                     case 1:
@@ -122,7 +121,7 @@ public class PaletteActivity extends ActionBarActivity
                         view.setBackgroundColor(values[0].getVibrantColor(Color.GRAY));
                         break;
                     case 5:
-                        view = findViewById(R.id.tiger);
+                        view = findViewById(R.id.bear);
                         view.setBackgroundColor(values[0].getVibrantColor(Color.GRAY));
                         break;
                 }

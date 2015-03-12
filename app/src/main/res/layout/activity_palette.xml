@@ -22,19 +22,20 @@
                 card_view:cardCornerRadius="4dp">
 
                 <LinearLayout
-                    android:id="@+id/bear"
+                    android:id="@+id/tiger"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clickable="true"
                     android:background="?android:attr/selectableItemBackground"
                     android:orientation="vertical">
 
+
                     <ImageView
                         android:scaleType="centerCrop"
                         android:padding="0dp"
                         android:layout_width="match_parent"
-                        android:src="@drawable/bear"
-                        android:id="@+id/bearImage"
+                        android:src="@drawable/tiger"
+                        android:id="@+id/tigerImage"
                         android:transitionName="robot"
                         android:layout_height="150dp"/>
 
@@ -44,9 +45,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAllCaps="false"
-                        android:id="@+id/bearTV"
                         android:padding="8dp"
-                        android:text="Bear"/>
+                        android:id="@+id/tigerTV"
+                        android:text="Tiger"/>
 
                 </LinearLayout>
 
@@ -216,7 +217,7 @@
                 card_view:cardCornerRadius="4dp">
 
                 <LinearLayout
-                    android:id="@+id/tiger"
+                    android:id="@+id/bear"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clickable="true"
@@ -227,10 +228,11 @@
                         android:scaleType="centerCrop"
                         android:padding="0dp"
                         android:layout_width="match_parent"
-                        android:src="@drawable/tiger"
-                        android:id="@+id/tigerImage"
+                        android:src="@drawable/bear"
+                        android:id="@+id/bearImage"
                         android:transitionName="robot"
                         android:layout_height="150dp"/>
+
 
                     <TextView
                         android:textSize="20sp"
@@ -238,9 +240,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAllCaps="false"
+                        android:id="@+id/bearTV"
                         android:padding="8dp"
-                        android:id="@+id/tigerTV"
-                        android:text="Tiger"/>
+                        android:text="Bear"/>
 
                 </LinearLayout>
 
