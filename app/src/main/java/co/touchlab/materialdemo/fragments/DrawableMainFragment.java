@@ -8,6 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.ImageView;
 
 import co.touchlab.materialdemo.R;
@@ -37,16 +40,15 @@ public class DrawableMainFragment extends Fragment
     {
         super.onActivityCreated(savedInstanceState);
         ImageView star = (ImageView) getActivity().findViewById(R.id.star_vector);
-        Drawable drawable = star.getDrawable();
-        if(drawable instanceof Animatable)
+        Drawable starDrawable = star.getDrawable();
+        if(starDrawable instanceof Animatable)
         {
-            ((Animatable) drawable).start();
+            ((Animatable) starDrawable).start();
         }
         ImageView androidImageView = (ImageView) getView().findViewById(R.id.heart);
-        Drawable androidImageViewDrawable = androidImageView.getDrawable();
-        if (androidImageViewDrawable instanceof Animatable)
-        {
-            ((Animatable) androidImageViewDrawable).start();
+        Drawable drawable = androidImageView.getDrawable();
+        if (drawable instanceof Animatable) {
+            ((Animatable) drawable).start();
         }
 
     }
