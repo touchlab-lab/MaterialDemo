@@ -9,4 +9,5 @@
     <color name="divider_color">#B6B6B6</color>
 
     <color name="tint">#8000ff00</color>
+    <color name="accent_dark">#AF3434</color>
 </resources>

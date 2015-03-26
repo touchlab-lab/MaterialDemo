@@ -12,11 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.touchlab.materialdemo.adapters.CardAdapter;
-import co.touchlab.materialdemo.views.FloatingActionButton;
 
 public class RecyclerListActivity extends Activity
 {
-    FloatingActionButton       mActionButton;
+    View                       mActionButton;
     RecyclerView               mRecyclerView;
     RecyclerView.Adapter       mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
@@ -36,7 +35,7 @@ public class RecyclerListActivity extends Activity
         setContentView(R.layout.activity_recycler_grid);
 
         mDataSet = populateDataSet();
-        mActionButton = (FloatingActionButton) findViewById(R.id.fab_icon);
+        mActionButton = findViewById(R.id.fab_icon);
         mActionButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
